@@ -1,30 +1,84 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div :class="darkMode ? 'dark' : 'light'">
+    <div
+      class="h-screen w-screen bg-gray-200 dark:bg-primary overflow-scroll absolute"
+      :class="darkMode ? 'dark' : 'light'"
+    >
+      <top-bar @darkMode="toggleDarkMode" class="z-50" />
+      <router-view
+        @darkMode="toggleDarkMode"
+        class="h-82vh bg-gray-200 dark:bg-primary z-10"
+      />
+      <navbar @darkMode="toggleDarkMode" />
+    </div>
   </div>
-  <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+// import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import { defineComponent } from 'vue';
+import Navbar from './components/Navbar.vue';
+import TopBar from './components/TopBar.vue';
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default defineComponent({
+  name: 'App',
+  components: {
+    Navbar,
+    TopBar, // IonApp,
+    // IonRouterOutlet,
+  },
+  data() {
+    return {
+      darkMode: false,
+    };
+  },
+  methods: {
+    toggleDarkMode() {
+      console.log('clicked');
+      this.darkMode = !this.darkMode;
+    },
+    getFixtures() {
+      this.$store.dispatch('getGameFixtures');
+    },
+    getUpcomingFixtures() {
+      this.$store.dispatch('getUpcomingFixtures');
+    },
+    getLaLigaGames() {
+      this.$store.dispatch('getLaLigaGames');
+    },
+    getUpcomingLaLigaGames() {
+      this.$store.dispatch('getUpcomingLaLigaFixtures');
+    },
+    getLigueOneGames() {
+      this.$store.dispatch('getLigueOneFixtures');
+    },
+    getUpcomingLigueOneGames() {
+      this.$store.dispatch('getUpcomingLigueOneFixtures');
+    },
+    getChampionsLeagueGames() {
+      this.$store.dispatch('getChampionsLeagueFixtures');
+    },
+    getUpcomingChampionsLeagueGames() {
+      this.$store.dispatch('getUpcomingChampionsLeagueFixtures');
+    },
+    getEuropaLeagueGames() {
+      this.$store.dispatch('getEuropaLeagueFixtures');
+    },
+    getUpcomingEuropaLeagueGames() {
+      this.$store.dispatch('getUpcomingEuropaLeagueFixtures');
+    },
+  },
+  created() {
+    this.getFixtures();
+    this.getUpcomingFixtures();
+    this.getLaLigaGames();
+    this.getUpcomingLaLigaGames();
+    this.getLigueOneGames();
+    this.getUpcomingLigueOneGames();
+    this.getChampionsLeagueGames();
+    this.getUpcomingChampionsLeagueGames();
+    this.getEuropaLeagueGames();
+    this.getUpcomingEuropaLeagueGames();
+  },
+});
+</script>
