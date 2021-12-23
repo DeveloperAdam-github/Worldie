@@ -266,7 +266,7 @@ export default {
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5ee839aacfmsh9ead2a5c2e634cep1e4af1jsn6cf3f3f58df2',
+            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
         },
       };
 

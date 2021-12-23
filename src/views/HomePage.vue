@@ -179,12 +179,12 @@
       <h2 class="text-black dark:text-white font-headline font-bold text-sm">
         Upcoming
       </h2>
-      <p class="font-bold text-sm text-yellow-600 cursor-pointer">Next 10</p>
+      <p class="font-bold text-sm text-yellow-600 cursor-pointer">Games</p>
     </div>
 
     <div
       v-if="premierLeague === true"
-      class="h-64 w-full carousel-vertical flex items-center p-2"
+      class="h-50% w-full carousel-vertical flex items-center p-2 overflow-x-hidden"
     >
       <upcoming-game-card
         v-for="(game, index) in upcomingGames"
@@ -195,7 +195,7 @@
 
     <div
       v-if="laLiga === true"
-      class="h-64 w-full carousel-vertical flex items-center p-2"
+      class="h-50% w-full carousel-vertical flex items-center p-2"
     >
       <upcoming-game-card
         v-for="(game, index) in upcomingLaLigaGames"
@@ -206,7 +206,7 @@
 
     <div
       v-if="ligueOne === true"
-      class="h-64 w-full carousel-vertical flex items-center p-2"
+      class="h-50% w-full carousel-vertical flex items-center p-2"
     >
       <upcoming-game-card
         v-for="(game, index) in upcomingLigueOneGames"
@@ -217,7 +217,7 @@
 
     <div
       v-if="championsLeague === true"
-      class="h-64 w-full carousel-vertical flex items-center p-2"
+      class="h-50% w-full carousel-vertical flex items-center p-2"
     >
       <upcoming-game-card
         v-for="(game, index) in upcomingChampionsLeagueGames"
@@ -228,7 +228,7 @@
 
     <div
       v-if="europaLeague === true"
-      class="h-64 w-full carousel-vertical flex items-center p-2"
+      class="h-50% w-full carousel-vertical flex items-center p-2"
     >
       <upcoming-game-card
         v-for="(game, index) in upcomingEuropaLeagueGames"

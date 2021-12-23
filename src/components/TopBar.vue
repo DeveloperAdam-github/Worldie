@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-8vh p-3 px-5 items-center flex justify-between z-50 relative bg-transparent"
+    class="h-8vh pt-14 px-5 mb-2 items-center flex justify-between z-50 relative bg-transparent"
   >
     <!-- bg-gray-200 dark:bg-primary -->
     <div>
@@ -26,7 +26,7 @@
               alt=""
             />
           </span>
-          re
+          ree
         </p>
       </div>
     </div>
