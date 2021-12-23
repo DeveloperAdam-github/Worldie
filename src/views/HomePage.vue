@@ -6,7 +6,9 @@
       <div
         class="carousel-item rounded-xl cursor-pointer h-7 p-2 px-3 bg-white flex text-sm font-bold items-center mx-3 text-black dark:text-white"
         :class="
-          this.premierLeague == true ? 'bg-pink dark:bg-pink' : 'dark:bg-fourth'
+          this.premierLeague == true
+            ? 'bg-pink dark:bg-pink text-white'
+            : 'dark:bg-fourth'
         "
         @click="
           (this.premierLeague = true),
@@ -26,7 +28,9 @@
       <div
         class="carousel-item rounded-xl h-7 p-2 px-3 bg-white dark:text-white text-sm font-bold flex items-center mx-3 text-black"
         :class="
-          this.laLiga === true ? 'bg-pink dark:bg-pink' : 'dark:bg-fourth'
+          this.laLiga === true
+            ? 'bg-pink dark:bg-pink  text-white'
+            : 'dark:bg-fourth'
         "
         @click="
           (this.laLiga = true),
@@ -44,7 +48,9 @@
       <div
         class="carousel-item rounded-xl h-7 p-2 bg-white text-black dark:text-white text-sm font-bold flex items-center mx-3"
         :class="
-          this.ligueOne === true ? 'bg-pink dark:bg-pink' : 'dark:bg-fourth'
+          this.ligueOne === true
+            ? 'bg-pink dark:bg-pink text-white'
+            : 'dark:bg-fourth'
         "
         @click="
           (this.ligueOne = true),
@@ -59,10 +65,10 @@
         </p>
       </div>
       <div
-        class="carousel-item rounded-xl h-7 p-2 bg-white text-gray-400 dark:text-white text-sm font-bold flex items-center mx-3"
+        class="carousel-item rounded-xl h-7 p-2 bg-white text-black dark:text-white text-sm font-bold flex items-center mx-3"
         :class="
           this.championsLeague === true
-            ? 'bg-pink dark:bg-pink'
+            ? 'bg-pink dark:bg-pink text-white'
             : 'dark:bg-fourth'
         "
         @click="
@@ -82,9 +88,11 @@
         </p>
       </div>
       <div
-        class="carousel-item rounded-xl h-7 p-2 bg-white text-gray-400 dark:text-white text-sm font-bold flex items-center mx-3"
+        class="carousel-item rounded-xl h-7 p-2 bg-white text-black dark:text-white text-sm font-bold flex items-center mx-3"
         :class="
-          this.europaLeague === true ? 'bg-pink dark:bg-pink' : 'dark:bg-fourth'
+          this.europaLeague === true
+            ? 'bg-pink dark:bg-pink text-white'
+            : 'dark:bg-fourth'
         "
         @click="
           (this.europaLeague = true),

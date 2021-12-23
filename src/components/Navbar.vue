@@ -7,7 +7,9 @@
         class="flex flex-col items-center w-full m-2 p-1"
         :to="{ name: 'HomePage' }"
       >
-        <span class="text-gray-400 dark:text-white"> home </span>
+        <span class="text-gray-400 dark:text-white">
+          <i class="fas fa-home text-xl"></i>
+        </span>
         <span class="h-6 text-3xl leading-3 opacity-0">&#183;</span>
       </router-link>
     </div>
@@ -17,7 +19,9 @@
         class="flex flex-col items-center w-full m-2 p-1"
         :to="{ name: 'SchedulePage' }"
       >
-        <span class="text-gray-400 dark:text-white"> calendar </span>
+        <span class="text-gray-400 dark:text-white">
+          <i class="fas fa-calendar-alt text-xl"></i>
+        </span>
         <span class="h-6 text-3xl leading-3 opacity-0">&#183;</span>
       </router-link>
     </div>
@@ -27,7 +31,9 @@
         class="flex flex-col items-center w-full m-2 p-1"
         :to="{ name: 'StatsPage' }"
       >
-        <span class="text-gray-400 dark:text-white"> stats </span>
+        <span class="text-gray-400 dark:text-white transform -rotate-90">
+          <i class="fas fa-chart-bar text-xl"></i>
+        </span>
         <span class="h-6 text-3xl leading-3 opacity-0">&#183;</span>
       </router-link>
     </div>
@@ -39,7 +45,9 @@
         class="flex flex-col items-center w-full m-2 p-1"
         :to="{ name: 'ProfilePage' }"
       >
-        <span class="text-gray-400 dark:text-white"> home </span>
+        <span class="text-gray-400 dark:text-white">
+          <i class="fas fa-futbol text-xl"></i>
+        </span>
         <span class="h-6 text-3xl leading-3 opacity-0">&#183;</span>
       </router-link>
     </div>

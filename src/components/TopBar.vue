@@ -35,12 +35,20 @@
       <div
         class="h-8 w-8 rounded-lg bg-white dark:bg-fourth flex items-center justify-center transform cursor-pointer"
       >
-        <!-- <ion-icon
-          @click="$emit('darkMode')"
-          :icon="sunny"
-          class="text-xl font-bold text-gray-700 dark:text-white"
-        ></ion-icon> -->
-        <!-- <ion-icon :icon="moon" class="text-xl font-bold text-gray-700 dark:text-white""></ion-icon> -->
+        <i
+          v-if="isDarkModeActive"
+          @click="
+            $emit('darkMode'), (this.isDarkModeActive = !this.isDarkModeActive)
+          "
+          class="fas fa-sun text-xl font-bold text-gray-700 dark:text-white"
+        ></i>
+        <i
+          v-if="!isDarkModeActive"
+          @click="
+            $emit('darkMode'), (this.isDarkModeActive = !this.isDarkModeActive)
+          "
+          class="fas fa-moon text-xl font-bold text-gray-700 dark:text-white"
+        ></i>
       </div>
     </div>
   </div>
@@ -54,14 +62,10 @@ export default {
   components: {
     // IonIcon,
   },
-  setup() {
-    return {
-      // sunny,
-      // moon,
-    };
-  },
   data() {
-    return {};
+    return {
+      isDarkModeActive: false,
+    };
   },
   methods: {},
 };
