@@ -80,34 +80,56 @@ module.exports = {
   },
   plugins: [require('daisyui')],
 
-  // daisyui: {
-  //   daisyui: {
-  //     styled: true,
-  //     themes: true,
-  //     base: true,
-  //     utils: true,
-  //     logs: true,
-  //     rtl: false,
-  //     themes: [
-  //       {
-  //         light: {
-  //           primary: '#FE2782',
-  //           navbar: '#101011',
-  //           secondary: '#141517',
-  //           third: '#FF2E0C',
-  //           fourth: '#212226',
-  //           pink: '#FE2782',
-  //         },
-  //         dark: {
-  //           primary: '#0F1012',
-  //           navbar: '#101011',
-  //           secondary: '#141517',
-  //           third: '#FF2E0C',
-  //           fourth: '#212226',
-  //           pink: '#FE2782',
-  //         },
-  //       },
-  //     ],
-  //   },
-  // },
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: false,
+    utils: true,
+    logs: true,
+    rtl: false,
+  },
+
+  daisyui: {
+    themes: [
+      {
+        worldie: {
+          /* your theme name */ primary: '#0090FF' /* Primary color */,
+          'primary-focus': '#212226' /* Primary color - focused */,
+          'primary-content':
+            '#793EF9' /* Foreground content color to use on primary color */,
+          'primary-redbull': '#0600ef',
+
+          third: '#0600ef',
+
+          secondary: '#2B4562' /* Secondary color */,
+          'secondary-focus': '#f3cc30' /* Secondary color - focused */,
+          'secondary-content':
+            '#ffffff' /* Foreground content color to use on secondary color */,
+
+          fourth: '#212226' /* fourth color */,
+          'fourth-focus': '#2aa79b' /* fourth color - focused */,
+          'fourth-content':
+            '#ffffff' /* Foreground content color to use on accent color */,
+
+          neutral: '#3d4451' /* Neutral color */,
+          'neutral-focus': '#FFF' /* Neutral color - focused */,
+          'neutral-content':
+            '#900000' /* Foreground content color to use on neutral color */,
+
+          'base-100':
+            '#005AFF' /* Base color of page, used for blank backgrounds */,
+          'base-200': '#006F62' /* Base color, a little darker */,
+          'base-300': '#2B4562' /* Base color, even more darker */,
+          'base-content':
+            '#0090FF' /* Foreground content color to use on base color */,
+
+          info: '#0600ef' /* Info */,
+          success: '#FF0000' /* Success */,
+          warning: '#793EF9' /* Warning */,
+          error: '#00D2BE' /* Error */,
+          accent: '#793EF9',
+        },
+      },
+    ],
+  },
 };

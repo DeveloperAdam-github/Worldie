@@ -54,7 +54,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -77,7 +77,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -99,7 +99,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -122,7 +122,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -143,7 +143,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -165,7 +165,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -186,7 +186,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -208,7 +208,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -229,7 +229,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 
@@ -251,7 +251,7 @@ export default new Vuex.Store({
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 

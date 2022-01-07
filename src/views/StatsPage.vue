@@ -1,5 +1,8 @@
 <template>
-  <div class="p-3 flex flex-col items-center h-full w-full">
+  <div
+    class="p-3 flex flex-col items-center h-full w-full"
+    data-theme="worldie"
+  >
     <div
       class="w-full h-52 stats-card -top-16 z-3 rounded-2xl flex flex-col items-center pt-16"
       :class="
@@ -7,6 +10,10 @@
           ? 'bg-la-liga'
           : matchData[0]?.league.id === 61
           ? 'bg-ligue-1'
+          : matchData[0]?.league.id === 2
+          ? 'bg-champions'
+          : matchData[0]?.league.id === 3
+          ? 'bg-europa'
           : ''
       "
     >
@@ -17,6 +24,7 @@
       </div>
     </div>
     <div
+      data-theme="worldie"
       class="w-11/12 bg-white dark:bg-fourth text-black dark:text-white h-96 rounded-2xl shadow-xl shadow-black p-2 flex flex-col items-center"
     >
       <div class="w-full p-2 flex justify-between">
@@ -46,19 +54,19 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="matchData[0]?.goals?.home"
               :max="matchData[0]?.goals?.home + matchData[0]?.goals?.away"
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="matchData[0]?.goals?.away"
               :max="matchData[0]?.goals?.away + matchData[0]?.goals?.home"
             ></progress>
           </div>
           <!-- <div class="h-2 rounded-full mr-1 w-2/6 bg-pink"></div>
           <div
-            class="h-2 rounded-full ml-1 w-4/6 bg-primary dark:bg-gray-200"
+            class="h-2 rounded-full ml-1 w-4/6 bg-accent dark:bg-gray-200"
           ></div> -->
         </div>
       </div>
@@ -75,7 +83,7 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-accent dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="matchData[0]?.statistics[0]?.statistics[0]?.value"
               :max="
                 matchData[0]?.statistics[0]?.statistics[0]?.value +
@@ -83,7 +91,7 @@
               "
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="matchData[0]?.statistics[1]?.statistics[0]?.value"
               :max="
                 matchData[0]?.statistics[0]?.statistics[0]?.value +
@@ -104,7 +112,7 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="matchData[0]?.statistics[0]?.statistics[1]?.value"
               :max="
                 matchData[0]?.statistics[0]?.statistics[1]?.value +
@@ -112,7 +120,7 @@
               "
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="matchData[0]?.statistics[1]?.statistics[1]?.value"
               :max="
                 matchData[0]?.statistics[0]?.statistics[1]?.value +
@@ -133,7 +141,7 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="matchData[0]?.statistics[0]?.statistics[10]?.value ?? 0"
               :max="
                 matchData[0]?.statistics[0]?.statistics[10]?.value +
@@ -141,7 +149,7 @@
               "
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="matchData[0]?.statistics[1]?.statistics[10]?.value ?? 0"
               :max="
                 matchData[0]?.statistics[0]?.statistics[10]?.value +
@@ -162,7 +170,7 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="matchData[0]?.statistics[0]?.statistics[11]?.value ?? 0"
               :max="
                 matchData[0]?.statistics[0]?.statistics[11]?.value ??
@@ -171,7 +179,7 @@
               "
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="matchData[0]?.statistics[1]?.statistics[11]?.value ?? 0"
               :max="
                 matchData[0]?.statistics[0]?.statistics[11]?.value ??
@@ -193,7 +201,7 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="matchData[0]?.statistics[0]?.statistics[7]?.value"
               :max="
                 matchData[0]?.statistics[0]?.statistics[7]?.value +
@@ -201,7 +209,7 @@
               "
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="matchData[0]?.statistics[1]?.statistics[7]?.value"
               :max="
                 matchData[0]?.statistics[0]?.statistics[7]?.value +
@@ -222,7 +230,7 @@
         <div class="w-full h-4 flex">
           <div class="artboard w-full flex">
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
               :value="
                 Number(
                   matchData[0]?.statistics[0]?.statistics[9]?.value.slice(0, -1)
@@ -231,7 +239,7 @@
               :max="100"
             ></progress>
             <progress
-              class="progress progress-primary dark:bg-gray-600 w-3/6 ml-1"
+              class="progress progress-warning dark:bg-gray-600 w-3/6 ml-1"
               :value="
                 Number(
                   matchData[0]?.statistics[1]?.statistics[9]?.value.slice(0, -1)
@@ -266,7 +274,7 @@ export default {
         headers: {
           'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
           'x-rapidapi-key':
-            '5b71e2b463mshd914f41522d1485p1fa212jsn163c10239966',
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
       };
 

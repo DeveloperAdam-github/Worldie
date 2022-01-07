@@ -5,11 +5,11 @@
     <!-- bg-gray-200 dark:bg-primary -->
     <div>
       <div class="h-9 w-9 rounded-full">
-        <img
+        <!-- <img
           src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2016/02/17/10/homersimpson1702a.jpg?width=1200"
           alt=""
           class="h-9 w-9 object-cover rounded-full"
-        />
+        /> -->
       </div>
     </div>
 
@@ -18,7 +18,7 @@
         <p
           class="text-lg text-gray-500 dark:text-white font-bold flex items-center font-boldHeadline"
         >
-          LiveSc
+          W
           <span class="text-pink">
             <img
               class="h-5 text-pink"
@@ -26,7 +26,7 @@
               alt=""
             />
           </span>
-          ree
+          rldie
         </p>
       </div>
     </div>

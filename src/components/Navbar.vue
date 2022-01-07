@@ -41,15 +41,18 @@
     <!-- <ion-icon name="stats-chart-outline"></ion-icon> -->
 
     <div class="">
-      <router-link
+      <button
         class="flex flex-col items-center w-full m-2 p-1"
-        :to="{ name: 'ProfilePage' }"
+        @click="countDownTimer"
       >
         <span class="text-gray-400 dark:text-white">
-          <i class="fas fa-futbol text-xl"></i>
+          <i
+            class="fas fa-futbol text-xl hover:animate-spin"
+            :class="countDown < 15 ? 'text-gray-200' : 'text-gray-400'"
+          ></i>
         </span>
         <span class="h-6 text-3xl leading-3 opacity-0">&#183;</span>
-      </router-link>
+      </button>
     </div>
   </div>
 </template>
@@ -58,8 +61,37 @@
 export default {
   name: 'navbar-component',
   components: {},
-  setup() {
-    return {};
+  data() {
+    return {
+      countDown: 15,
+    };
+  },
+  methods: {
+    getFixtures() {
+      this.$store.dispatch('getGameFixtures');
+    },
+    getLaLigaGames() {
+      this.$store.dispatch('getLaLigaGames');
+    },
+    getLigueOneGames() {
+      this.$store.dispatch('getLigueOneFixtures');
+    },
+    getChampionsLeagueGames() {
+      this.$store.dispatch('getChampionsLeagueFixtures');
+    },
+    getEuropaLeagueGames() {
+      this.$store.dispatch('getEuropaLeagueFixtures');
+    },
+    countDownTimer() {
+      if (this.countDown > 0) {
+        setTimeout(() => {
+          this.countDown -= 1;
+          this.countDownTimer();
+        }, 1000);
+      } else if (this.countDown == 0) {
+        this.countDown = 15;
+      }
+    },
   },
 };
 </script>

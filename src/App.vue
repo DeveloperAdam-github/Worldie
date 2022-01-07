@@ -1,7 +1,7 @@
 <template>
   <div :class="darkMode ? 'dark' : 'light'">
     <div
-      class="h-screen w-screen bg-gray-200 dark:bg-primary overflow-scroll absolute"
+      class="h-screen w-screen bg-gray-200 dark:bg-primary absolute overflow-hidden pt-2 sm:pt-0"
       :class="darkMode ? 'dark' : 'light'"
     >
       <top-bar @darkMode="toggleDarkMode" class="z-50" />
