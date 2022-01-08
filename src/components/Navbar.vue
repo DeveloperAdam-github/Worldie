@@ -42,13 +42,22 @@
 
     <div class="">
       <button
+        :disabled="countDown < 300"
         class="flex flex-col items-center w-full m-2 p-1"
-        @click="countDownTimer"
+        :class="countDown < 300 ? 'disabled' : ''"
+        @click="getNewDataAndTriggerTimer"
       >
-        <span class="text-gray-400 dark:text-white">
+        <span
+          class="text-gray-400 dark:text-white"
+          :class="onClickSpin < 4 ? 'animate-spin' : ''"
+        >
           <i
-            class="fas fa-futbol text-xl hover:animate-spin"
-            :class="countDown < 15 ? 'text-gray-200' : 'text-gray-400'"
+            class="far fa-futbol text-xl"
+            :class="
+              countDown < 300
+                ? 'text-gray-200 dark:text-gray-800'
+                : 'text-gray-400 dark:text-white'
+            "
           ></i>
         </span>
         <span class="h-6 text-3xl leading-3 opacity-0">&#183;</span>
@@ -63,7 +72,8 @@ export default {
   components: {},
   data() {
     return {
-      countDown: 15,
+      countDown: 300,
+      onClickSpin: 4,
     };
   },
   methods: {
@@ -82,6 +92,21 @@ export default {
     getEuropaLeagueGames() {
       this.$store.dispatch('getEuropaLeagueFixtures');
     },
+    getFixtureData() {
+      const id = this.$route.params.id;
+      // console.log(this.$route.params.id, 'the params id for the refresh');
+      this.$store.dispatch('getMatchData', id);
+    },
+    countDownTimerSpinner() {
+      if (this.onClickSpin > 0) {
+        setTimeout(() => {
+          this.onClickSpin -= 1;
+          this.countDownTimerSpinner();
+        }, 1000);
+      } else if (this.onClickSpin == 0) {
+        this.onClickSpin = 4;
+      }
+    },
     countDownTimer() {
       if (this.countDown > 0) {
         setTimeout(() => {
@@ -89,8 +114,13 @@ export default {
           this.countDownTimer();
         }, 1000);
       } else if (this.countDown == 0) {
-        this.countDown = 15;
+        this.countDown = 300;
       }
+    },
+    getNewDataAndTriggerTimer() {
+      this.countDownTimerSpinner();
+      this.getFixtureData();
+      this.countDownTimer();
     },
   },
 };

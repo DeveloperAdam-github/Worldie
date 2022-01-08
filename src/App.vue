@@ -34,7 +34,6 @@ export default defineComponent({
   },
   methods: {
     toggleDarkMode() {
-      console.log('clicked');
       this.darkMode = !this.darkMode;
     },
     getFixtures() {

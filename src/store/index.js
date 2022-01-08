@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default new Vuex.Store({
   state: {
+    singleGameFixture: [],
     gameFixtures: [],
     upcomingFixtures: [],
     laLigaGames: [],
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     upComingEuropaLeagueGames: [],
   },
   mutations: {
+    singleGame_fixture(state, game) {
+      state.singleGameFixture = game;
+    },
     store_fixtures(state, games) {
       state.gameFixtures = games;
     },
@@ -47,12 +51,33 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    getMatchData({ commit }, id) {
+      const options = {
+        method: 'GET',
+        url: `https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${id}`,
+        headers: {
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+          'x-rapidapi-key':
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
+        },
+      };
+      axios
+        .request(options)
+        .then((response) => {
+          const game = response.data.response;
+          commit('singleGame_fixture', game);
+          // console.log(game, 'the single game match data');
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
     getGameFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures?season=2021&last=10&league=39',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=39',
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -63,7 +88,7 @@ export default new Vuex.Store({
         .then((response) => {
           const games = response.data.response;
           commit('store_fixtures', games);
-          console.log(games, 'the prem gam fixtures');
+          // console.log(games, 'the prem gam fixtures');
         })
         .catch(function (error) {
           console.error(error);
@@ -72,10 +97,10 @@ export default new Vuex.Store({
     getUpcomingFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: { league: '39', next: '10' },
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -85,7 +110,7 @@ export default new Vuex.Store({
         .request(options)
         .then((response) => {
           const games = response.data.response;
-          console.log(response.data.response, 'upcoming games');
+          // console.log(response.data.response, 'upcoming games');
           commit('upcoming_fixtures', games);
         })
         .catch(function (error) {
@@ -95,9 +120,9 @@ export default new Vuex.Store({
     getLaLigaGames({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures?season=2021&last=10&league=140',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=140',
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -117,10 +142,10 @@ export default new Vuex.Store({
     getUpcomingLaLigaFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: { league: '140', next: '10' },
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -139,9 +164,9 @@ export default new Vuex.Store({
     getLigueOneFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures?season=2021&last=10&league=61',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=61',
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -160,10 +185,10 @@ export default new Vuex.Store({
     getUpcomingLigueOneFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: { league: '61', next: '10' },
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -182,9 +207,9 @@ export default new Vuex.Store({
     getChampionsLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures?season=2021&last=10&league=2',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=2',
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -203,10 +228,10 @@ export default new Vuex.Store({
     getUpcomingChampionsLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: { league: '2', next: '10' },
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -225,9 +250,9 @@ export default new Vuex.Store({
     getEuropaLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures?season=2021&last=10&league=3',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=3',
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -246,10 +271,10 @@ export default new Vuex.Store({
     getUpcomingEuropaLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-beta.p.rapidapi.com/fixtures',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
         params: { league: '3', next: '10' },
         headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
             'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
         },
@@ -267,6 +292,9 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    singleGameFixture(state) {
+      return state.singleGameFixture;
+    },
     gameFixtures(state) {
       return state.gameFixtures;
     },

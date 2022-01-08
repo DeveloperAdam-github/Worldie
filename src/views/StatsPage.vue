@@ -256,8 +256,9 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import StatsCard from '../components/StatsCard.vue';
+import { mapGetters } from 'vuex';
 export default {
   components: { StatsCard },
   data() {
@@ -265,33 +266,49 @@ export default {
       matchData: [],
     };
   },
+  computed: { ...mapGetters(['singleGameFixture']) },
+  watch: {
+    singleGameFixture(newVal, oldVal) {
+      console.log(`Updating ${oldVal} to ${newVal}`);
+      this.matchData = newVal;
+    },
+  },
   methods: {
-    getMatchData() {
+    getFixtureData() {
       const id = this.$route.params.id;
-      const options = {
-        method: 'GET',
-        url: `https://api-football-beta.p.rapidapi.com/fixtures?id=${id}`,
-        headers: {
-          'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
-          'x-rapidapi-key':
-            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
-        },
-      };
-
-      axios
-        .request(options)
-        .then((response) => {
-          this.matchData = response.data.response;
-          console.log(this.matchData);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+      this.$store.dispatch('getMatchData', id);
     },
   },
   mounted() {
-    this.getMatchData();
+    this.getFixtureData();
   },
+  // methods: {
+  //   getMatchData() {
+  //     const id = this.$route.params.id;
+  //     const options = {
+  //       method: 'GET',
+  //       url: `https://api-football-v1.p.rapidapi.com/v3/fixtures?id=${id}`,
+  //       headers: {
+  //         'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+  //         'x-rapidapi-key':
+  //           'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
+  //       },
+  //     };
+
+  //     axios
+  //       .request(options)
+  //       .then((response) => {
+  //         this.matchData = response.data.response;
+  //         console.log(this.matchData);
+  //       })
+  //       .catch(function (error) {
+  //         console.error(error);
+  //       });
+  //   },
+  // },
+  // mounted() {
+  //   this.getMatchData();
+  // },
 };
 </script>
 
