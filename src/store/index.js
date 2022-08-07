@@ -75,7 +75,7 @@ export default new Vuex.Store({
     getGameFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=39',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=39',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -120,7 +120,7 @@ export default new Vuex.Store({
     getLaLigaGames({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=140',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=140',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -164,7 +164,7 @@ export default new Vuex.Store({
     getLigueOneFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=61',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=61',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -207,7 +207,7 @@ export default new Vuex.Store({
     getChampionsLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=2',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=2',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -250,7 +250,7 @@ export default new Vuex.Store({
     getEuropaLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=3',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=3',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
