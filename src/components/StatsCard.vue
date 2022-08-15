@@ -1,19 +1,19 @@
 <template>
-  <div class="h-44 w-full flex flex-col items-center">
-    <div class="flex flex-col m-2 align-top items-center">
+  <div class="h-full w-full flex flex-col items-center">
+    <div class="flex flex-col mb-1 align-top items-center">
       <p v-if="game[0]?.league?.id === 140">La Liga</p>
       <p v-else-if="game[0]?.league?.id === 61">La Liga</p>
       <p v-else class="text-sm font-bold">Premier League</p>
       <!-- <p class="text-sm font-bold">La Liga</p> -->
       <p class="dark:text-gray-200 text-gray-800 text-xs">
-        Week{{ game[0]?.league?.round?.split('-')[1] }}
+        Week{{ game[0]?.league?.round?.split("-")[1] }}
       </p>
     </div>
 
-    <div class="flex justify-between w-full">
+    <div class="flex justify-between w-full h-4/5">
       <!-- first team -->
       <div class="1st-team w-1/2 flex flex-col items-center">
-        <img class="h-14" :src="game[0]?.teams?.home?.logo" alt="" />
+        <img class="h-2/5" :src="game[0]?.teams?.home?.logo" alt="" />
         <p class="dark:text-white text-black font-boldHeadline text-center">
           {{ game[0]?.teams?.home?.name }}
         </p>
@@ -28,7 +28,15 @@
           <p class="text-xl font-bold">{{ game[0]?.goals?.away }}</p>
         </div>
         <div
-          class="bg-white dark:bg-fourth time-bg rounded-xl flex justify-center border border-red-400"
+          class="
+            bg-white
+            dark:bg-fourth
+            time-bg
+            rounded-xl
+            flex
+            justify-center
+            border border-red-400
+          "
         >
           <p class="text-white text-sm">
             <!-- <small>FT</small> -->
@@ -42,8 +50,8 @@
       </div>
 
       <!-- second team -->
-      <div class="2nd-team w-1/2 flex flex-col items-center">
-        <img class="h-14" :src="game[0]?.teams?.away?.logo" />
+      <div class="2nd-team w-1/2 flex flex-col items-center h-4/5">
+        <img class="h-2/5" :src="game[0]?.teams?.away?.logo" />
         <p class="dark:text-white text-black font-boldHeadline text-center">
           {{ game[0]?.teams?.away?.name }}
         </p>
@@ -55,7 +63,7 @@
 
 <script>
 export default {
-  props: ['game'],
+  props: ["game"],
 };
 </script>
 
