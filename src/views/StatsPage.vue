@@ -4,7 +4,17 @@
     data-theme="worldie"
   >
     <div
-      class="w-full h-52 stats-card -top-16 z-3 rounded-2xl flex flex-col items-center pt-16"
+      class="
+        w-full
+        h-52
+        stats-card
+        -top-16
+        z-3
+        rounded-2xl
+        flex flex-col
+        items-center
+        pt-16
+      "
       :class="
         matchData[0]?.league.id === 140
           ? 'bg-la-liga'
@@ -18,33 +28,92 @@
       "
     >
       <div
-        class="bg-white dark:bg-fourth text-black dark:text-white h-48 w-10/12 z-20 absolute rounded-2xl shadow-xl shadow-black flex flex-col p-2 items-center"
+        class="
+          bg-white
+          dark:bg-fourth
+          text-black
+          dark:text-white
+          h-5/6
+          max-h-[48]
+          w-10/12
+          z-20
+          absolute
+          rounded-2xl
+          shadow-xl shadow-black
+          flex flex-col
+          p-2
+          items-center
+        "
       >
         <stats-card :game="matchData" />
       </div>
     </div>
     <div
       data-theme="worldie"
-      class="w-11/12 bg-white dark:bg-fourth text-black dark:text-white h-96 rounded-2xl shadow-xl shadow-black flex flex-col items-center"
+      class="
+        w-11/12
+        bg-white
+        dark:bg-fourth
+        text-black
+        dark:text-white
+        h-96
+        rounded-2xl
+        shadow-xl shadow-black
+        flex flex-col
+        items-center
+      "
     >
       <div class="w-full p-2 flex justify-between">
         <div
           @click="view = 1"
-          class="h-10 m-1 w-1/3 rounded-xl bg-pink flex items-center justify-center font-headline text-sm text-white"
+          class="
+            h-10
+            m-1
+            w-1/3
+            rounded-xl
+            bg-pink
+            flex
+            items-center
+            justify-center
+            font-headline
+            text-sm text-white
+          "
         >
           Stats
         </div>
         <!-- LINE UP -->
         <div
           @click="this.view = 2"
-          class="h-10 m-1 w-1/3 rounded-xl bg-pink flex items-center justify-center font-headline text-sm text-white"
+          class="
+            h-10
+            m-1
+            w-1/3
+            rounded-xl
+            bg-pink
+            flex
+            items-center
+            justify-center
+            font-headline
+            text-sm text-white
+          "
         >
           Line-Up
         </div>
         <!-- END LINE UP -->
         <div
           @click="this.view = 3"
-          class="h-10 m-1 w-1/3 rounded-xl bg-pink flex items-center justify-center font-headline text-sm text-white"
+          class="
+            h-10
+            m-1
+            w-1/3
+            rounded-xl
+            bg-pink
+            flex
+            items-center
+            justify-center
+            font-headline
+            text-sm text-white
+          "
         >
           Summary
         </div>
@@ -53,7 +122,15 @@
       <!-- Start of stats -->
       <div
         v-if="view === 1"
-        class="w-full p-3 pb-4 h-full flex flex-col justify-between items-center"
+        class="
+          w-full
+          p-3
+          pb-4
+          h-full
+          flex flex-col
+          justify-between
+          items-center
+        "
       >
         <div class="h-5 w-full m-2.5">
           <div class="w-full px-2 flex justify-between">
@@ -64,7 +141,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-warning
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="matchData[0]?.goals?.home"
                 :max="matchData[0]?.goals?.home + matchData[0]?.goals?.away"
               ></progress>
@@ -93,7 +177,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-accent dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-accent
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="matchData[0]?.statistics[0]?.statistics[0]?.value"
                 :max="
                   matchData[0]?.statistics[0]?.statistics[0]?.value +
@@ -122,7 +213,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-warning
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="matchData[0]?.statistics[0]?.statistics[2]?.value"
                 :max="
                   matchData[0]?.statistics[0]?.statistics[2]?.value +
@@ -151,7 +249,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-warning
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="matchData[0]?.statistics[0]?.statistics[10]?.value ?? 0"
                 :max="
                   matchData[0]?.statistics[0]?.statistics[10]?.value +
@@ -180,7 +285,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-warning
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="matchData[0]?.statistics[0]?.statistics[11]?.value ?? 0"
                 :max="
                   matchData[0]?.statistics[0]?.statistics[11]?.value ??
@@ -211,7 +323,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-warning
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="matchData[0]?.statistics[0]?.statistics[7]?.value"
                 :max="
                   matchData[0]?.statistics[0]?.statistics[7]?.value +
@@ -240,7 +359,14 @@
           <div class="w-full h-4 flex">
             <div class="artboard w-full flex">
               <progress
-                class="progress progress-warning dark:bg-gray-600 w-3/6 transform rotate-180 mr-1"
+                class="
+                  progress progress-warning
+                  dark:bg-gray-600
+                  w-3/6
+                  transform
+                  rotate-180
+                  mr-1
+                "
                 :value="
                   Number(
                     matchData[0]?.statistics[0]?.statistics[9]?.value.slice(
@@ -347,7 +473,17 @@
         </div>
         <div class="w-full flex px-auto justify-center absolute bottom-0">
           <div
-            class="transform transition-all w-1/2 flex items-center justify-center border-t-2 border-r p-1 rounded-bl-xl"
+            class="
+              transform
+              transition-all
+              w-1/2
+              flex
+              items-center
+              justify-center
+              border-t-2 border-r
+              p-1
+              rounded-bl-xl
+            "
             :class="activeTeam === 1 ? 'bg-gray-200' : ''"
             @click="toggleActiveTeam"
           >
@@ -359,7 +495,17 @@
             />
           </div>
           <div
-            class="transform transition-all w-1/2 flex items-center justify-center border-t-2 border-l p-1 rounded-br-xl"
+            class="
+              transform
+              transition-all
+              w-1/2
+              flex
+              items-center
+              justify-center
+              border-t-2 border-l
+              p-1
+              rounded-br-xl
+            "
             :class="activeTeam !== 1 ? 'bg-gray-200' : ''"
             @click="toggleActiveTeam"
           >
@@ -382,9 +528,9 @@
 
 <script>
 // import axios from 'axios';
-import StatsCard from '../components/StatsCard.vue';
-import { mapGetters } from 'vuex';
-import Summary from '../components/Summary.vue';
+import StatsCard from "../components/StatsCard.vue";
+import { mapGetters } from "vuex";
+import Summary from "../components/Summary.vue";
 export default {
   components: { StatsCard, Summary },
   data() {
@@ -394,7 +540,7 @@ export default {
       activeTeam: 1,
     };
   },
-  computed: { ...mapGetters(['singleGameFixture']) },
+  computed: { ...mapGetters(["singleGameFixture"]) },
   watch: {
     singleGameFixture(newVal) {
       // console.log(`Updating ${oldVal} to ${newVal}`);
@@ -405,7 +551,7 @@ export default {
   methods: {
     getFixtureData() {
       const id = this.$route.params.id;
-      this.$store.dispatch('getMatchData', id);
+      this.$store.dispatch("getMatchData", id);
     },
     toggleActiveTeam() {
       if (this.activeTeam === 1) {
