@@ -1,6 +1,8 @@
 import Vuex from 'vuex';
 import axios from 'axios';
 
+// 848 for UEFA Conference league
+
 export default new Vuex.Store({
   state: {
     singleGameFixture: [],
@@ -14,6 +16,10 @@ export default new Vuex.Store({
     upComingChampionsLeagueGames: [],
     europaLeagueGames: [],
     upComingEuropaLeagueGames: [],
+    europaLeagueConferenceGames: [],
+    upComingEuropaConferenceLeagueGames: [],
+    worldCupGames: [],
+    upcomingWorldCupGames: [],
   },
   mutations: {
     singleGame_fixture(state, game) {
@@ -49,6 +55,18 @@ export default new Vuex.Store({
     upcoming_europa(state, games) {
       state.upComingEuropaLeagueGames = games;
     },
+    europa_conference_fixtures(state, games) {
+      state.europaConferenceLeagueGames = games;
+    },
+    upcoming_europa_conference_fixtures(state, games) {
+      state.upComingEuropaConferenceLeagueGames = games;
+    },
+    world_cup_games(state, games) {
+      state.worldCupGames = games;
+    },
+    upcoming_world_cup_games(state, games) {
+      state.upcomingWorldCupGames = games;
+    }
   },
   actions: {
     getMatchData({ commit }, id) {
@@ -75,7 +93,7 @@ export default new Vuex.Store({
     getGameFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=39',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=39',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -120,7 +138,7 @@ export default new Vuex.Store({
     getLaLigaGames({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=140',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=140',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -164,7 +182,7 @@ export default new Vuex.Store({
     getLigueOneFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=61',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=61',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -207,7 +225,7 @@ export default new Vuex.Store({
     getChampionsLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=2',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=2',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -250,7 +268,7 @@ export default new Vuex.Store({
     getEuropaLeagueFixtures({ commit }) {
       const options = {
         method: 'GET',
-        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2021&last=10&league=3',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=3',
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
           'x-rapidapi-key':
@@ -285,6 +303,96 @@ export default new Vuex.Store({
         .then((response) => {
           const games = response.data.response;
           commit('upcoming_europa', games);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
+    // Conference league
+    getEuropaConferenceLeagueFixtures({ commit }) {
+      const options = {
+        method: 'GET',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=10&league=848',
+        headers: {
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+          'x-rapidapi-key':
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
+        },
+      };
+
+      axios
+        .request(options)
+        .then((response) => {
+          const games = response.data.response;
+          commit('europa_conference_fixtures', games);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
+    getUpcomingEuropaConferenceLeagueFixtures({ commit }) {
+      const options = {
+        method: 'GET',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
+        params: { league: '848', next: '10' },
+        headers: {
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+          'x-rapidapi-key':
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
+        },
+      };
+
+      axios
+        .request(options)
+        .then((response) => {
+          const games = response.data.response;
+          commit('upcoming_europa_conference_fixtures', games);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
+     // WORLD CUP
+     getWorldCupGames({ commit }) {
+      const options = {
+        method: 'GET',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures?season=2022&last=20&league=1',
+        headers: {
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+          'x-rapidapi-key':
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
+        },
+      };
+
+      axios
+        .request(options)
+        .then((response) => {
+          console.log(response, 'world cup games');
+          const games = response.data.response;
+          commit('world_cup_games', games);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
+    getUpcomingWorldCupGames({ commit }) {
+      const options = {
+        method: 'GET',
+        url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
+        params: { league: '1', next: '20' },
+        headers: {
+          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
+          'x-rapidapi-key':
+            'c69655757emshbcbfee81712eaf4p1144bajsnbf04355c2f8e',
+        },
+      };
+
+      axios
+        .request(options)
+        .then((response) => {
+          const games = response.data.response;
+          console.log(games, 'upcoming world cup games?');
+          commit('upcoming_world_cup_games', games);
         })
         .catch(function (error) {
           console.error(error);
@@ -325,5 +433,17 @@ export default new Vuex.Store({
     getUpcomingEuropaLeagueGames(state) {
       return state.upComingEuropaLeagueGames;
     },
+    europaLeagueConferenceGames(state) {
+      return state.europaLeagueConferenceGames;
+    },
+    getUpcomingEuropaConferenceLeagueGames(state) {
+      return state.upComingEuropaConferenceLeagueGames;
+    },
+    worldCupGames(state) {
+      return state.worldCupGames
+    },
+    getUpcomingWorldCupGames(state) {
+      return state.upcomingWorldCupGames
+    }
   },
 });

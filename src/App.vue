@@ -66,6 +66,18 @@ export default defineComponent({
     getUpcomingEuropaLeagueGames() {
       this.$store.dispatch('getUpcomingEuropaLeagueFixtures');
     },
+    getEuropaConferenceLeagueGames() {
+      this.$store.dispatch('getEuropaConferenceLeagueFixtures')
+    },
+    getUpcomingEuropaConferenceLeagueGamesFromStore() {
+      this.$store.dispatch('getUpcomingEuropaConferenceLeagueFixtures')
+    },
+    getWorldCupGames() {
+      this.$store.dispatch('getWorldCupGames');
+    },
+    getUpcomingWorldCupGames() {
+      this.$store.dispatch('getUpcomingWorldCupGames')
+    }
   },
   created() {
     this.getFixtures();
@@ -78,6 +90,11 @@ export default defineComponent({
     this.getUpcomingChampionsLeagueGames();
     this.getEuropaLeagueGames();
     this.getUpcomingEuropaLeagueGames();
+    this.getEuropaConferenceLeagueGames();
+    this.getUpcomingEuropaConferenceLeagueGamesFromStore();
+    this.getWorldCupGames();
+    this.getUpcomingWorldCupGames();
+
   },
 });
 </script>

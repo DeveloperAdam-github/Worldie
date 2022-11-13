@@ -6,7 +6,7 @@
       <p class="flex flex-wrap text-xs">
         {{ game.teams.home.name }}
       </p>
-      <img class="h-7 pl-1" :src="game.teams.home.logo" alt="" />
+      <img class="h-7 max-w-10 pl-1" :src="game.teams.home.logo" alt="" />
     </div>
 
     <div class="flex flex-col w-1/5 items-center justify-center mx-1">
@@ -28,7 +28,7 @@
     </div>
     <!-- .split(' ')[0]  -->
     <div class="flex w-2/5 items-center justify-between p-1">
-      <img class="h-7 pr-1" :src="game.teams.away.logo" alt="" />
+      <img class="h-7 pr-1 max-w-10" :src="game.teams.away.logo" alt="" />
       <p class="flex flex-wrap text-xs text-right">
         {{ game.teams.away.name }}
       </p>
@@ -39,6 +39,14 @@
 <script>
 export default {
   props: ['game'],
+   data() {
+    return {
+    };
+  },
+  methods: {},
+  mounted() {
+    console.log('hello', this.$props.game);
+  }
 };
 </script>
 

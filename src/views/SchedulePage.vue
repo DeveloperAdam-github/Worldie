@@ -3,6 +3,31 @@
     <!-- <top-bar /> -->
     <!-- FIRST CAROUSEL -->
     <div class="w-full h-20 carousel flex items-center pl-5 overflow-scroll">
+    
+    <div
+        class="carousel-item rounded-xl cursor-pointer h-7 p-2 px-3 bg-white flex text-sm font-bold items-center mx-3 text-black dark:text-white"
+        :class="
+          this.worldCup == true
+            ? 'bg-pink dark:bg-pink text-white'
+            : 'dark:bg-fourth'
+        "
+        @click="
+        (this.worldCup = true),
+          (this.premierLeague = false),
+            (this.laLiga = false),
+            (this.ligueOne = false),
+            (this.championsLeague = false),
+            (this.europaLeague = false),
+              (this.europaConferenceLeague = false)
+        "
+      >
+        <p class="flex items-center">
+          <img
+            class="h-10 "
+            src="../assets/images/qatar-wc.png"
+          />World Cup 🏆
+        </p>
+      </div>
       <div
         class="carousel-item rounded-xl cursor-pointer h-7 p-2 px-3 bg-white flex text-sm font-bold items-center mx-3 text-black dark:text-white"
         :class="
@@ -15,7 +40,9 @@
             (this.laLiga = false),
             (this.ligueOne = false),
             (this.championsLeague = false),
-            (this.europaLeague = false)
+            (this.europaLeague = false),
+              (this.europaConferenceLeague = false),
+               (this.worldCup = false)
         "
       >
         <p class="flex items-center">
@@ -37,7 +64,9 @@
             (this.premierLeague = false),
             (this.ligueOne = false),
             (this.championsLeague = false),
-            (this.europaLeague = false)
+            (this.europaLeague = false),
+              (this.europaConferenceLeague = false),
+               (this.worldCup = false)
         "
       >
         <p class="flex items-center">
@@ -57,7 +86,9 @@
             (this.premierLeague = false),
             (this.laLiga = false),
             (this.championsLeague = false),
-            (this.europaLeague = false)
+            (this.europaLeague = false),
+              (this.europaConferenceLeague = false),
+               (this.worldCup = false)
         "
       >
         <p class="flex items-center">
@@ -76,7 +107,9 @@
             (this.premierLeague = false),
             (this.laLiga = false),
             (this.ligueOne = false),
-            (this.europaLeague = false)
+            (this.europaLeague = false),
+              (this.europaConferenceLeague = false),
+               (this.worldCup = false)
         "
       >
         <p class="flex items-center">
@@ -85,6 +118,31 @@
             src="../assets/images/uefa-champions-league-seeklogo.com.svg"
             alt=""
           />Champions League
+        </p>
+      </div>
+       <div
+        class="carousel-item rounded-xl h-7 p-2 bg-white text-black dark:text-white text-sm font-bold flex items-center mx-3"
+        :class="
+          this.europaConferenceLeague === true
+            ? 'bg-pink dark:bg-pink text-white'
+            : 'dark:bg-fourth'
+        "
+        @click="
+        (this.europaConferenceLeague = true),
+          (this.europaLeague = false),
+            (this.premierLeague = false),
+            (this.laLiga = false),
+            (this.ligueOne = false),
+            (this.championsLeague = false),
+               (this.worldCup = false)
+        "
+      >
+        <p class="flex items-center">
+          <img
+            class="h-8 mr-2"
+            src="../assets/images/conference-league.png"
+            alt=""
+          />Europa Conference
         </p>
       </div>
       <div
@@ -99,7 +157,9 @@
             (this.premierLeague = false),
             (this.laLiga = false),
             (this.ligueOne = false),
-            (this.championsLeague = false)
+            (this.championsLeague = false),
+            (this.europaConferenceLeague = false),
+               (this.worldCup = false)
         "
       >
         <p class="flex items-center">
@@ -117,19 +177,19 @@
       Matches
     </p>
     <!-- SECOND CAROUSEL -->
-    <div
-      v-if="premierLeague === true"
-      class="h-60 p-2 w-full carousel flex items-center overflow-scroll"
-    >
-      <!-- <router-link
-        class="cursor-pointer"
-        v-for="(game, index) in games"
-        :key="index"
-        :to="{ name: 'StatsPage', params: { id: game.fixture.id } }"
-      > -->
-      <game-card v-for="(game, index) in games" :key="index" :game="game" />
-      <!-- </router-link> -->
-    </div>
+      <div
+        v-if="premierLeague === true"
+        class="h-60 p-2 w-full carousel flex items-center overflow-scroll"
+      >
+        <!-- <router-link
+          class="cursor-pointer"
+          v-for="(game, index) in games"
+          :key="index"
+          :to="{ name: 'StatsPage', params: { id: game.fixture.id } }"
+        > -->
+        <game-card v-for="(game, index) in games" :key="index" :game="game" />
+      </div>
+        <!-- </router-link> -->
 
     <div
       v-if="laLiga === true"
@@ -170,6 +230,28 @@
     >
       <game-card
         v-for="(game, index) in europaLeagueGames"
+        :key="index"
+        :game="game"
+      />
+    </div>
+
+     <div
+      v-if="europaConferenceLeague === true"
+      class="h-60 p-2 w-full carousel flex items-center overflow-scroll"
+    >
+      <game-card
+        v-for="(game, index) in europaConferenceLeagueGames"
+        :key="index"
+        :game="game"
+      />
+    </div>
+
+       <div
+      v-if="worldCup === true && worldCupGames.length > 0"
+      class="h-60 p-2 w-full carousel flex items-center overflow-scroll"
+    >
+      <game-card
+        v-for="(game, index) in worldCupGames"
         :key="index"
         :game="game"
       />
@@ -236,6 +318,28 @@
         :game="game"
       />
     </div>
+
+     <div
+      v-if="europaConferenceLeague === true"
+      class="h-50% w-full carousel-vertical flex items-center p-2 overflow-x-hidden"
+    >
+      <upcoming-game-card
+        v-for="(game, index) in upComingEuropaConferenceLeagueGames"
+        :key="index"
+        :game="game"
+      />
+    </div>
+
+     <div
+      v-if="worldCup === true"
+      class="w-full carousel-vertical flex items-center p-2 overflow-x-hidden" :class="worldCupGames.length > 0 ? 'h-50%' :'h-80%'"
+    >
+      <upcoming-game-card
+        v-for="(game, index) in upcomingWorldCupGames"
+        :key="index"
+        :game="game"
+      />
+    </div>
   </div>
 </template>
 
@@ -257,11 +361,17 @@ export default {
       upcomingChampionsLeagueGames: [],
       europaLeagueGames: [],
       upcomingEuropaLeagueGames: [],
+      europaConferenceLeagueGames: [],
+      upComingEuropaConferenceLeagueGames: [],
+      worldCupGames: [],
+      upcomingWorldCupGames: [],
       premierLeague: true,
       laLiga: false,
       ligueOne: false,
       championsLeague: false,
+      europaConferenceLeague: false,
       europaLeague: false,
+      worldCup: false,
     };
   },
   methods: {
@@ -300,6 +410,19 @@ export default {
       this.upcomingEuropaLeagueGames =
         this.$store.state.upComingEuropaLeagueGames;
     },
+    getEuropaConferenceLeagueGames() {
+      this.europaConferenceLeagueGames = this.$store.state.europaConferenceLeagueGames;
+    },
+    getUpcomingEuropaConferenceLeagueGamesFromStore() {
+      this.upComingEuropaConferenceLeagueGames = this.$store.state.upComingEuropaConferenceLeagueGames;
+    },
+    getWorldCupGames() {
+      this.worldCupGames = this.$store.state.worldCupGames
+    },
+    getUpcomingWorldCupGames() {
+      this.upcomingWorldCupGames = this.$store.state.upcomingWorldCupGames
+      console.log(this.upcomingWorldCupGames, 'are these filled');
+    }
   },
   mounted() {
     this.getGamesFromStore();
@@ -312,6 +435,10 @@ export default {
     this.getUpcomingChampionsLeagueGamesFromStore();
     this.getEuropaLeagueGames();
     this.getUpcomingEuropaLeagueGamesFromStore();
+    this.getEuropaConferenceLeagueGames();
+    this.getUpcomingEuropaConferenceLeagueGamesFromStore();
+    this.getWorldCupGames()
+    this.getUpcomingWorldCupGames();
   },
 };
 </script>

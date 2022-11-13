@@ -24,6 +24,8 @@ module.exports = {
           "linear-gradient(to bottom right, rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.8)), url('https://wallery.app/dufovot/uefa-champions-league-wallpaper.webp')",
         europa:
           "linear-gradient(to bottom right, rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.8)), url('https://wallpapercave.com/wp/wp4486794.jpg')",
+          europaConference:
+          "linear-gradient(to bottom right, rgba(1, 1, 1, 0.5), rgba(1, 1, 1, 0.8)), url('https://e0.365dm.com/21/05/2048x1152/skysports-europa-conference-league_5378745.jpg')",
       },
       fontFamily: {
         headline: ['F1-Regular'],
@@ -60,6 +62,9 @@ module.exports = {
         '80%': '80%',
         '90%': '90%',
         '100%': '100%',
+      },
+      maxWidth: {
+        '10': '2.5rem',
       },
       fontSize: {
         md: '0.8rem',

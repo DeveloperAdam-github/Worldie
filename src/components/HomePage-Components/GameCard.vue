@@ -15,6 +15,8 @@
         ? 'bg-champions'
         : game.league.id === 3
         ? 'bg-europa'
+        : game.league.id === 848
+        ? 'bg-europaConference'
         : ''
     "
   >
