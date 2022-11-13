@@ -25,7 +25,7 @@
           <img
             class="h-10 "
             src="../assets/images/qatar-wc.png"
-          />World Cup 🏆
+          />World Cup 
         </p>
       </div>
       <div
